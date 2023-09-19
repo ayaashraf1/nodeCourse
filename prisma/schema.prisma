@@ -7,5 +7,38 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("postgres://new_database_schema_user:rxelbo0n2FcbUdbIc2L6rTQzVdZzhHLO@dpg-ck4nt0mct0pc73d9rs8g-a.oregon-postgres.render.com/new_database_schema")
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String    @id @default(uuid())
+  createdAt DateTime  @default(now())
+  name      String    @unique @db.VarChar(255)
+  password  String
+  products  Product[]
+}
+
+model Product {
+  id          String   @id @default(uuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime
+  name        String   @db.VarChar(255)
+  belongsTo   User     @relation(fields: [belongsToId], references: [id])
+  belongsToId String
+  updates     Update[]
+}
+
+enum STATUS {
+  SHIPPED
+  CANCELED
+  INPROGRESS
+}
+
+model Update {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  name      STATUS   @default(INPROGRESS)
+  productId String
+  product   Product  @relation(fields: [productId], references: [id])
 }
