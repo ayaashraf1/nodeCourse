@@ -10,3 +10,4 @@
 # using prisma to create db through this website render.com
 # using ORM[oriented relational mapping] is a way to deal with DB
 # add routers and use thunder client plugin[tool like postman] in vs for testing
+# add middlewares and create custom one
