@@ -14,6 +14,7 @@
 # add authentiation
 # to check db after adding user we can use npx prisma studio
 # after any change in db you should run npx prisma migrate dev
+# note: Express don't know how to handle asynchronous error but we can handle it with next ^_^
 
 # db url https://dashboard.render.com/d/dpg-ck4nt0mct0pc73d9rs8g-a
 # material src https://hendrixer.github.io/API-design-v4/

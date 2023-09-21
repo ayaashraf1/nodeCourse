@@ -23,5 +23,16 @@ app.use('/api',protect,router);
 app.post('/createnewuser',createNewUser);
 app.post('/signin',signIn);
 
-
+app.use((err,req,res,next)=>{
+   console.log(err.type,err.message);
+   if(err.type === 'auth'){
+      res.status(401).json({message:'unauthorized'});
+   }
+   else if(err.type === 'input'){
+      res.status(400).json({message:'invaild data'});
+   }
+   else{
+      res.status(500).json({message:'Oops, that is on us!!'});
+   }
+});
 export default app;
