@@ -22,7 +22,7 @@ model User {
 model Product {
   id          String   @id @default(uuid())
   createdAt   DateTime @default(now())
-  updatedAt   DateTime
+  updatedAt   DateTime?
   name        String   @db.VarChar(255)
   belongsTo   User     @relation(fields: [belongsToId], references: [id])
   belongsToId String
