@@ -5,7 +5,9 @@
   "main": "fibonacci.js",
   "scripts": {
     "test": "jest",
-    "server": "nodemon src/index.ts"
+    "server": "nodemon src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js"
   },
   "repository": {
     "type": "git",
