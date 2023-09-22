@@ -13,10 +13,8 @@ export const createNewUser = async (req, res,next) => {
         const token = createJWT(user);
         res.send({ token });
     }catch(err){
-        //we can handle it in generic method with next or we can handle it here with specific message description
-        //next(err);
-        //i prefer to handle it here
-        res.status(400).json({message:'invalid data'});
+        err.type = "input";
+        next(err);
     }
     
 }
