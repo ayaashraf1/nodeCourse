@@ -38,8 +38,10 @@ enum STATUS {
 model Update {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
-  updatedAt DateTime
-  name      STATUS   @default(INPROGRESS)
+  updatedAt DateTime?
+  title String
+  body String
+  status      STATUS   @default(INPROGRESS)
   productId String
   product   Product  @relation(fields: [productId], references: [id])
 }
