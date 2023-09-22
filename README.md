@@ -17,10 +17,11 @@
 # note: Express don't know how to handle asynchronous error but we can handle it with next ^_^
 # we use types of env to change configuration in different environments EX(local ,prod)
 # note: use promises with blocking code
+# successfully deployed on https://api-design-v4-pjtm.onrender.com/  🥳💃🏻
 
 
-# db url https://dashboard.render.com/d/dpg-ck4nt0mct0pc73d9rs8g-a
-# material src https://hendrixer.github.io/API-design-v4/
+# db external url https://dashboard.render.com/d/dpg-ck4nt0mct0pc73d9rs8g-a
+# material src https://hendrixer.github.io/API-design-v4/  
 # course url https://frontendmasters.com/courses/api-design-nodejs-v4
 
 
