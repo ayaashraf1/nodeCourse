@@ -1,0 +1,220 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Node App API",
+      "description": "Find out how your APIs work",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "localhost:3005",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "Users",
+        "description": "API for users in the system"
+      },
+      {
+        "name": "Products",
+        "description": "API for products in the system"
+      },
+      {
+        "name":"Updates",
+        "description": "API for updates in the system"
+      }
+
+    ],
+    "schemes": [
+      "http",
+      "https"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "securityDefinitions": {
+        "ApiKeyAuth":{
+          "type": "apiKey",
+          "in": "headers",
+          "name": "authorization"
+        }
+    },
+    "paths": {
+      "/createnewuser": {
+        "post": {
+          "summary": "create new user",
+          "tags": [
+            "Users"
+          ],
+          "description": "create user in system",
+          "parameters": [
+            {
+              "name": "name",
+              "in": "body",
+              "description": "name of new user"
+            },
+            {
+                "name": "password",
+                "in": "body",
+                "description": "password of new user"
+              }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "created Success",
+              "schema": {
+                "$ref": "#/definitions/Token"
+              }
+            },
+            "401":{
+              "description": "unauthorized"
+            },
+            "400":{
+              "description": "invaild data"
+            },
+            "500":{
+              "description": "Oops, that is on us!!"
+            }
+          }
+        }
+      },
+      "/signin":{
+        "post":{
+            "summary": "sign in user",
+            "tags": [
+              "Users"
+            ],
+            "description": "sign user in system",
+            "parameters": [
+              {
+                "name": "name",
+                "in": "body",
+                "description": "name of new user"
+              },
+              {
+                  "name": "password",
+                  "in": "body",
+                  "description": "password of new user"
+                }
+            ],
+            "produces": [
+              "application/json"
+            ],
+            "responses": {
+              "200": {
+                "description": "created Success",
+                "schema": {
+                  "$ref": "#/definitions/Token"
+                }
+              },
+              "401":{
+                "description": "user not exist"
+              },
+              "400":{
+                "description": "invaild data"
+              },
+              "500":{
+                "description": "Oops, that is on us!!"
+              }
+            }
+        }
+      },
+      "/api/product":{
+        "post":{
+            "summary": "get all products related to sign in user",
+            "tags": [
+              "Products"
+            ],
+            "description": "get all products related to sign in user in system",
+            "parameters": [],
+            "produces": [
+              "application/json"
+            ],
+            "responses": {
+              "200": {
+                "description": "created Success",
+                "schema": {
+                  "$ref": "#/definitions/Products"
+                }
+              },
+              "401":{
+                "description": "user not exist"
+              },
+              "400":{
+                "description": "invaild data"
+              },
+              "500":{
+                "description": "Oops, that is on us!!"
+              }
+            }
+        }
+      },
+      "/api/update":{
+        "post":{
+            "summary": "get all updates related to sign in user",
+            "tags": [
+              "Updates"
+            ],
+            "description": "get all updates related to sign in user in system",
+            "parameters": [],
+            "produces": [
+              "application/json"
+            ],
+            "responses": {
+              "200": {
+                "description": "created Success",
+                "schema": {
+                  "$ref": "#/definitions/Products"
+                }
+              },
+              "401":{
+                "description": "user not exist"
+              },
+              "400":{
+                "description": "invaild data"
+              },
+              "500":{
+                "description": "Oops, that is on us!!"
+              }
+            }
+        }
+      }
+    },
+
+    "definitions": {
+        "Token":{
+           "type":"string"
+        },
+        "Products":{
+            "products": []
+        },
+
+      "User": {
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "userEmail":{
+        "properties": {
+          "email": {
+            "type": "string"
+          }
+        }
+      }
+
+
+
+    }
+  }

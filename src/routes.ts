@@ -9,6 +9,21 @@ const router = Router();
 /**
  * Product
  */
+/**
+ * @swagger
+ * paths:
+ *  /producct:
+ * get:
+ * description: get all products!
+ * response:
+ * 200:
+ *   content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Book'
+ */
 router.get('/product', getAllProducts);
 router.get('/product/:id', getOneProduct);
 router.post('/product', body("name").isString(), errorHandler, createProduct);
